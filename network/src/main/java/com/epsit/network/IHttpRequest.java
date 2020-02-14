@@ -12,4 +12,7 @@ public interface IHttpRequest {
 
      //开始执行
      void execute();
+
+     //上面的void setListener(CallBackListener callBackListener)设置的什么，这里就返回什么
+     CallBackListener getCallBackListener();
 }

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.request).setOnClickListener(this);
         findViewById(R.id.requestNews).setOnClickListener(this);
         findViewById(R.id.weather).setOnClickListener(this);
+        findViewById(R.id.go_second).setOnClickListener(this);
         result = findViewById(R.id.result);
     }
 
@@ -53,6 +55,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.weather:{
                 requestZhouWeather();
+            }break;
+            case R.id.go_second:{
+                startActivity(new Intent(this, SecondActivity.class));
             }break;
         }
 
@@ -239,6 +244,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void requestJsonWeather(){
         Log.e(TAG,"以json返回，还要自己给");
+        String url = null ;
+        //需要另外一个测试的接口lia
     }
 
     //请求州讯天气的接口
@@ -277,7 +284,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //州讯天气接口的真正请求
     public void requestZhouWeatherReally(){
-        Log.e(TAG,"request()方法里头");
+        Log.e(TAG,"requestZhouWeatherReally()方法里头");
         String url = null ;
         url ="http://zhouxunwang.cn/data/?id=7&key=VODPrYVgG9r+ipKA+4g7R2nAMgTgsJeZ/px1&name=jiangxi";//这个接口有300次免费调用的次数限制
         //String url = "http://t.weather.sojson.com/api/weather/city/101030100";//这个查询天气的接口用不了了，报错404，好像网上说某些ip格式的被禁止调用了

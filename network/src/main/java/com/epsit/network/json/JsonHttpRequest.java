@@ -77,4 +77,9 @@ public class JsonHttpRequest implements IHttpRequest {
             httpURLConnection.disconnect();
         }
     }
+
+    @Override
+    public CallBackListener getCallBackListener() {
+        return callBackListener;
+    }
 }
